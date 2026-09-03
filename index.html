@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Celular de Gustavo</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="phone">
+  <div class="notch"></div>
+
+  <!-- TELA DE BLOQUEIO -->
+  <div class="screen wallpaper" id="lockScreen">
+    <div class="status-bar">
+      <span class="time">21:47</span>
+      <div class="status-icons">
+        <span class="icon-signal no-signal" title="Sem sinal">
+          <i></i><i></i><i></i><i></i>
+        </span>
+        <span class="no-signal-label">Sem sinal</span>
+        <span class="icon-bluetooth"></span>
+        <span class="icon-battery"><span class="icon-battery-fill"></span></span>
+      </div>
+    </div>
+
+    <div class="lock-content">
+      <div class="clock">21:47</div>
+      <div class="date">13 de outubro de 2022</div>
+      <div class="greeting">Olá, Gustavo.</div>
+
+      <div class="pin-dots" id="pinDots">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+
+      <div class="message" id="lockMessage">&nbsp;</div>
+
+      <div class="keypad" id="keypad">
+        <button data-key="1">1</button>
+        <button data-key="2">2</button>
+        <button data-key="3">3</button>
+        <button data-key="4">4</button>
+        <button data-key="5">5</button>
+        <button data-key="6">6</button>
+        <button data-key="7">7</button>
+        <button data-key="8">8</button>
+        <button data-key="9">9</button>
+        <button class="key-secondary" data-key="hint">💡</button>
+        <button data-key="0">0</button>
+        <button class="key-secondary" data-key="back">⌫</button>
+      </div>
+
+      <button class="link-btn" id="forgotBtn" hidden>Esqueceu a senha? Deseja recuperar a senha?</button>
+    </div>
+
+    <div class="home-indicator"></div>
+  </div>
+
+  <!-- TELA DE DICA -->
+  <div class="screen hidden wallpaper" id="hintScreen">
+    <div class="status-bar">
+      <span class="time">21:47</span>
+      <div class="status-icons">
+        <span class="icon-signal no-signal" title="Sem sinal"><i></i><i></i><i></i><i></i></span>
+        <span class="icon-bluetooth"></span>
+        <span class="icon-battery"><span class="icon-battery-fill"></span></span>
+      </div>
+    </div>
+    <div class="recovery-box">
+      <h2>Lembrete de senha</h2>
+      <p class="hint-text">"Prata = 25"</p>
+      <button class="primary-btn" id="hintBackBtn">Voltar</button>
+    </div>
+  </div>
+
+  <!-- TELA DE RECUPERAÇÃO -->
+  <div class="screen hidden wallpaper" id="recoveryScreen">
+    <div class="status-bar">
+      <span class="time">21:47</span>
+      <div class="status-icons">
+        <span class="icon-signal no-signal" title="Sem sinal"><i></i><i></i><i></i><i></i></span>
+        <span class="icon-bluetooth"></span>
+        <span class="icon-battery"><span class="icon-battery-fill"></span></span>
+      </div>
+    </div>
+    <div class="recovery-box">
+      <h2>Recuperar senha</h2>
+      <p class="subtitle">Responda corretamente às 4 perguntas abaixo.</p>
+
+      <form id="recoveryForm">
+        <div class="question">
+          <label>Qual o nome completo da pessoa que criou essa senha?</label>
+          <input type="text" data-q="nome" autocomplete="off">
+          <div class="feedback"></div>
+        </div>
+
+        <div class="question">
+          <label>Qual o aniversário da pessoa que criou essa senha?</label>
+          <input type="date" data-q="aniversario" autocomplete="off">
+          <div class="feedback"></div>
+        </div>
+
+        <div class="question">
+          <label>Cite uma data importante para essa pessoa (casamento ou nascimento da filha):</label>
+          <input type="date" data-q="dataImportante" autocomplete="off">
+          <div class="feedback"></div>
+        </div>
+
+        <div class="question">
+          <label>Cite um nome importante para essa pessoa:</label>
+          <input type="text" data-q="nomeImportante" autocomplete="off">
+          <div class="feedback"></div>
+        </div>
+
+        <div class="recovery-actions">
+          <button type="button" class="secondary-btn" id="cancelRecoveryBtn">Cancelar</button>
+          <button type="submit" class="primary-btn">Confirmar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- TELA INICIAL (DESBLOQUEADO) -->
+  <div class="screen hidden wallpaper" id="homeScreen">
+    <div class="status-bar">
+      <span class="time">21:47</span>
+      <div class="status-icons">
+        <span class="icon-signal no-signal" title="Sem sinal"><i></i><i></i><i></i><i></i></span>
+        <span class="no-signal-label">Sem sinal</span>
+        <span class="icon-bluetooth"></span>
+        <span class="icon-battery"><span class="icon-battery-fill"></span></span>
+      </div>
+    </div>
+
+    <div class="home-content">
+      <div class="widget-clock">
+        <div class="widget-time">21:47</div>
+        <div class="widget-date">Quinta-feira, 13 de outubro</div>
+      </div>
+
+      <div class="apps-grid">
+        <div class="app messages-app-icon">
+          <div class="app-icon icon-messages">💬</div>
+          <span>Mensagens</span>
+        </div>
+        <div class="app email-app-icon">
+          <div class="app-icon icon-mail">✉️</div>
+          <span>E-mail</span>
+        </div>
+        <div class="app trancatron-app-icon">
+          <div class="app-icon icon-lock">🔒</div>
+          <span>TRANCATRON</span>
+        </div>
+        <div class="app">
+          <div class="app-icon icon-gallery">📷</div>
+          <span>Galeria</span>
+        </div>
+        <div class="app" id="contactsAppIcon">
+          <div class="app-icon icon-contacts">👤</div>
+          <span>Contatos</span>
+        </div>
+      </div>
+
+      <div class="page-dots">
+        <span class="page-dot active"></span>
+        <span class="page-dot"></span>
+      </div>
+
+      <div class="dock">
+        <div class="app messages-app-icon">
+          <div class="app-icon icon-messages">💬</div>
+        </div>
+        <div class="app email-app-icon">
+          <div class="app-icon icon-mail">✉️</div>
+        </div>
+        <div class="app trancatron-app-icon">
+          <div class="app-icon icon-lock">🔒</div>
+        </div>
+        <div class="app">
+          <div class="app-icon icon-gallery">📷</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="home-indicator"></div>
+  </div>
+
+  <!-- TELA DE CONTATOS -->
+  <div class="screen hidden" id="contactsScreen">
+    <div class="status-bar dark-bar">
+      <span class="time">21:47</span>
+      <div class="status-icons">
+        <span class="icon-signal no-signal" title="Sem sinal"><i></i><i></i><i></i><i></i></span>
+        <span class="no-signal-label">Sem sinal</span>
+        <span class="icon-bluetooth"></span>
+        <span class="icon-battery"><span class="icon-battery-fill"></span></span>
+      </div>
+    </div>
+
+    <div class="contacts-header">
+      <button class="back-btn" id="contactsBackBtn">‹ Início</button>
+      <h2>Contatos</h2>
+    </div>
+
+    <div class="contacts-list">
+      <div class="contact-row">
+        <div class="contact-avatar avatar-1">A</div>
+        <span class="contact-name">Alan</span>
+      </div>
+      <div class="contact-row">
+        <div class="contact-avatar avatar-2">E</div>
+        <span class="contact-name">Edgar</span>
+      </div>
+      <div class="contact-row">
+        <div class="contact-avatar avatar-3">E</div>
+        <span class="contact-name">Eloísa</span>
+      </div>
+      <div class="contact-row">
+        <div class="contact-avatar avatar-4">K</div>
+        <span class="contact-name">Kenia</span>
+      </div>
+      <div class="contact-row">
+        <div class="contact-avatar avatar-5">V</div>
+        <span class="contact-name">Victor</span>
+      </div>
+    </div>
+
+    <div class="home-indicator"></div>
+  </div>
+
+  <!-- TELA DE VERIFICAÇÃO DO E-MAIL -->
+  <div class="screen hidden wallpaper" id="emailLockScreen">
+    <div class="status-bar">
+      <span class="time">21:47</span>
+      <div class="status-icons">
+        <span class="icon-signal no-signal" title="Sem sinal"><i></i><i></i><i></i><i></i></span>
+        <span class="icon-bluetooth"></span>
+        <span class="icon-battery"><span class="icon-battery-fill"></span></span>
+      </div>
+    </div>
+    <div class="recovery-box">
+      <h2>Verificação necessária</h2>
+      <p class="subtitle">Por segurança, um código de confirmação foi enviado para o computador de Gustavo. Digite o código abaixo para acessar o e-mail.</p>
+
+      <form id="emailCodeForm">
+        <div class="question">
+          <label>Código de verificação</label>
+          <input type="text" id="emailCodeInput" autocomplete="off" placeholder="Digite o código">
+          <div class="feedback" id="emailCodeFeedback"></div>
+        </div>
+
+        <div class="recovery-actions">
+          <button type="button" class="secondary-btn" id="emailCodeCancelBtn">Cancelar</button>
+          <button type="submit" class="primary-btn">Confirmar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- TELA DE E-MAIL (LISTA) -->
+  <div class="screen hidden" id="emailScreen">
+    <div class="status-bar dark-bar">
+      <span class="time">21:47</span>
+      <div class="status-icons">
+        <span class="icon-signal no-signal" title="Sem sinal"><i></i><i></i><i></i><i></i></span>
+        <span class="icon-bluetooth"></span>
+        <span class="icon-battery"><span class="icon-battery-fill"></span></span>
+      </div>
+    </div>
+
+    <div class="contacts-header">
+      <button class="back-btn" id="emailBackBtn">‹ Início</button>
+      <h2>E-mail</h2>
+    </div>
+
+    <div class="email-tabs">
+      <button class="email-tab active" data-folder="inbox">Caixa de entrada</button>
+      <button class="email-tab" data-folder="sent">Enviados</button>
+    </div>
+
+    <div class="email-list" id="emailList"></div>
+  </div>
+
+  <!-- TELA DE E-MAIL (LEITURA) -->
+  <div class="screen hidden" id="emailDetailScreen">
+    <div class="status-bar dark-bar">
+      <span class="time">21:47</span>
+      <div class="status-icons">
+        <span class="icon-signal no-signal" title="Sem sinal"><i></i><i></i><i></i><i></i></span>
+        <span class="icon-bluetooth"></span>
+        <span class="icon-battery"><span class="icon-battery-fill"></span></span>
+      </div>
+    </div>
+
+    <div class="contacts-header">
+      <button class="back-btn" id="emailDetailBackBtn">‹ Voltar</button>
+    </div>
+
+    <div class="email-detail" id="emailDetail"></div>
+  </div>
+
+  <!-- TELA DE MENSAGENS (LISTA) -->
+  <div class="screen hidden" id="messagesScreen">
+    <div class="status-bar dark-bar">
+      <span class="time">21:47</span>
+      <div class="status-icons">
+        <span class="icon-signal no-signal" title="Sem sinal"><i></i><i></i><i></i><i></i></span>
+        <span class="icon-bluetooth"></span>
+        <span class="icon-battery"><span class="icon-battery-fill"></span></span>
+      </div>
+    </div>
+
+    <div class="contacts-header">
+      <button class="back-btn" id="messagesBackBtn">‹ Início</button>
+      <h2>Mensagens</h2>
+    </div>
+
+    <div class="chat-list" id="chatList"></div>
+  </div>
+
+  <!-- TELA DE CONVERSA -->
+  <div class="screen hidden" id="chatDetailScreen">
+    <div class="chat-header">
+      <button class="chat-back-btn" id="chatDetailBackBtn">‹</button>
+      <div class="chat-header-avatar" id="chatHeaderAvatar"></div>
+      <div class="chat-header-info">
+        <div class="chat-header-name" id="chatHeaderName"></div>
+        <div class="chat-header-sub" id="chatHeaderSub"></div>
+      </div>
+    </div>
+    <div class="chat-body" id="chatBody"></div>
+  </div>
+
+  <!-- TELA DO TRANCATRON -->
+  <div class="screen hidden" id="trancatronScreen">
+    <div class="status-bar dark-bar">
+      <span class="time">21:47</span>
+      <div class="status-icons">
+        <span class="icon-signal no-signal" title="Sem sinal"><i></i><i></i><i></i><i></i></span>
+        <span class="icon-bluetooth"></span>
+        <span class="icon-battery"><span class="icon-battery-fill"></span></span>
+      </div>
+    </div>
+
+    <div class="tc-header">
+      <button class="tc-back-btn" id="trancatronBackBtn">‹</button>
+      <div class="tc-header-icon">🔒</div>
+      <div class="tc-header-text">
+        <div class="tc-title">TRANCATRON</div>
+        <div class="tc-subtitle">Controle de tranca eletrônica · v2.1</div>
+      </div>
+    </div>
+
+    <div class="tc-body">
+      <div class="tc-status-row">
+        <span class="tc-led" id="trancatronLed"></span>
+        <span class="tc-status-text" id="trancatronStatusText">TRANCADO</span>
+      </div>
+
+      <div class="tc-display" id="trancatronDots">
+        <span class="tc-digit"></span>
+        <span class="tc-digit"></span>
+        <span class="tc-digit"></span>
+        <span class="tc-digit"></span>
+        <span class="tc-digit"></span>
+        <span class="tc-digit"></span>
+      </div>
+
+      <div class="tc-message" id="trancatronMessage">&nbsp;</div>
+
+      <div class="tc-keypad" id="trancatronKeypad">
+        <button data-key="1">1</button>
+        <button data-key="2">2</button>
+        <button data-key="3">3</button>
+        <button data-key="4">4</button>
+        <button data-key="5">5</button>
+        <button data-key="6">6</button>
+        <button data-key="7">7</button>
+        <button data-key="8">8</button>
+        <button data-key="9">9</button>
+        <button class="tc-key-zero" data-key="0">0</button>
+        <button class="tc-key-back" data-key="back">⌫</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
