@@ -566,6 +566,7 @@ body {
 .icon-lock { background: linear-gradient(160deg, #ff9f4c, #e0722c); }
 .icon-gallery { background: linear-gradient(160deg, #b06cff, #7c3ce0); }
 .icon-contacts { background: linear-gradient(160deg, #ff6c8a, #e0335c); }
+.icon-license { background: linear-gradient(160deg, #6c7684, #3d444e); }
 
 .page-dots {
   flex: 1;
@@ -980,4 +981,83 @@ body {
 .chat-bubble-time .check {
   color: #6fd3ff;
   margin-left: 3px;
+}
+
+/* LICENÇA */
+#licenseScreen {
+  background: #17171f;
+}
+
+.license-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px 24px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.license-seal-box {
+  width: 100%;
+  background: #000;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 6px;
+}
+
+.license-seal {
+  width: 45%;
+  min-width: 120px;
+  display: block;
+}
+
+.license-text {
+  font-size: 13.5px;
+  line-height: 1.6;
+  opacity: 0.9;
+  margin-top: 20px;
+}
+
+.license-link {
+  display: block;
+  color: #6fb4ff;
+  font-size: 13px;
+  text-decoration: none;
+  margin-top: 14px;
+}
+
+.license-link:hover {
+  text-decoration: underline;
+}
+
+.license-credits {
+  width: 100%;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.license-credits-title {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.55;
+}
+
+.license-credits-name {
+  font-size: 16px;
+  font-weight: 700;
+  margin-top: 4px;
+}
+
+.license-credits-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.55;
+  margin-top: 16px;
 }

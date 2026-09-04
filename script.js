@@ -117,6 +117,7 @@ const emailDetailScreen = document.getElementById("emailDetailScreen");
 const messagesScreen = document.getElementById("messagesScreen");
 const chatDetailScreen = document.getElementById("chatDetailScreen");
 const trancatronScreen = document.getElementById("trancatronScreen");
+const licenseScreen = document.getElementById("licenseScreen");
 
 const pinDots = document.querySelectorAll("#pinDots .dot");
 const lockMessage = document.getElementById("lockMessage");
@@ -226,6 +227,16 @@ document.getElementById("recoveryForm").addEventListener("submit", (e) => {
 document.getElementById("contactsAppIcon").addEventListener("click", () => {
   homeScreen.classList.add("hidden");
   contactsScreen.classList.remove("hidden");
+});
+
+document.getElementById("licenseAppIcon").addEventListener("click", () => {
+  homeScreen.classList.add("hidden");
+  licenseScreen.classList.remove("hidden");
+});
+
+document.getElementById("licenseBackBtn").addEventListener("click", () => {
+  licenseScreen.classList.add("hidden");
+  homeScreen.classList.remove("hidden");
 });
 
 document.getElementById("contactsBackBtn").addEventListener("click", () => {
