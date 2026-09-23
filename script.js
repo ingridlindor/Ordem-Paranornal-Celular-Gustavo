@@ -104,7 +104,7 @@ const CHATS = {
 };
 // =====================================
 
-const MAX_ATTEMPTS = 3;
+const MAX_ATTEMPTS = 1;
 
 const lockScreen = document.getElementById("lockScreen");
 const hintScreen = document.getElementById("hintScreen");
